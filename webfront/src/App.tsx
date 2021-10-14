@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Service from './Service';
+import Layout from './view/Layout';
 
 function App() {
   return (
@@ -27,7 +28,9 @@ function App() {
           </div>
         </Route>
         <Route path="/service">
-          <Service name="world" />
+          <Layout>
+            <Service name="world" />
+          </Layout>
         </Route>
       </Switch>
     </Router>

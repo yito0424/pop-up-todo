@@ -4,6 +4,6 @@ type ServiceProps =  {
     name: string,
 }
 
-const Service: React.VFC<ServiceProps> = ({name}) => <div className="text-5xl underline">hello {name}</div>;
+const Service: React.VFC<ServiceProps> = ({name}) => <div className="text-5xl underline text-secondly">hello {name}</div>;
 
 export default Service;

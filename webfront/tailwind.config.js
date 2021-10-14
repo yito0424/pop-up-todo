@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
@@ -7,5 +7,20 @@ module.exports = {
   variants: {
     extend: {},
   },
+  theme: {
+    extend: {
+      colors: {
+        primary: 'white',
+        secondly: '#838383',
+        accent: '#F0AD2C',
+      },
+      width: {
+        sidebar: '192px',
+      },
+      height: {
+        header: "50px",
+      },
+    },
+  },
   plugins: [],
-}
+};
