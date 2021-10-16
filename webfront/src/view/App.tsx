@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Service from './Service';
+import Service from './service/Service';
 import Layout from './layout/Layout';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         </Route>
         <Route path="/service">
           <Layout />
-          <Service name="world" />
+          <Service />
         </Route>
       </Switch>
     </Router>
