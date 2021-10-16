@@ -3,7 +3,7 @@ import Header from './Header';
 import SideBar from './SideBar';
 import Burger from './Burger';
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.VFC = () => {
   const [open, setOpen] = useState<boolean>(true);
 
   return (
@@ -11,10 +11,6 @@ const Layout: React.FC = ({ children }) => {
       <Header />
       <SideBar open={open} />
       <Burger open={open} setOpen={setOpen}  />
-      {children}
-      <footer>
-        <h1>coprlight</h1>
-      </footer>
     </>
   );
 };
