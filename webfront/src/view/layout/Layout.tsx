@@ -1,16 +1,14 @@
 import React, {useState} from 'react';
 import Header from './Header';
 import SideBar from './SideBar';
-import Burger from './Burger';
 
 const Layout: React.VFC = () => {
   const [open, setOpen] = useState<boolean>(true);
 
   return (
     <>
-      <Header />
+      <Header open={open} setOpen={setOpen} />
       <SideBar open={open} />
-      <Burger open={open} setOpen={setOpen}  />
     </>
   );
 };

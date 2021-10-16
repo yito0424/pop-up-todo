@@ -16,9 +16,11 @@ module.exports = {
       },
       width: {
         sidebar: '250px',
+        burger: '48px',
       },
       height: {
         header: '50px',
+        burger: '48px',
       },
       spacing: {
         header: '50px',

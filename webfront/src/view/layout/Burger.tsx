@@ -8,7 +8,7 @@ type BurgerProps = {
 const Burger: React.VFC<BurgerProps> = ({ open, setOpen }: BurgerProps) => (
   <button
     onClick ={()=>{setOpen(!open)}}
-    className="absolute inset-5percent left-2 flex flex-col justify-around w-12 h-12 rounded-md bg-accent cursor-pointer p-2 z-burger"
+    className="flex flex-col justify-around w-burger h-burger rounded-md bg-accent cursor-pointer p-2 z-burger"
     aria-label="Burger"
     type="button"
   >
