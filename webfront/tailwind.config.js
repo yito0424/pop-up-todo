@@ -8,7 +8,15 @@ module.exports = {
     extend: {},
   },
   theme: {
+    screens: {
+      sm: {'max': '480px'},
+    },
     extend: {
+      backgroundImage: theme => ({
+        // APIに繋ぎこむ
+        // pc: "url('/src/images/pc.jpg')",
+        // sm: "url('/src/images/smartphone.jpg')",
+      }),
       colors: {
         primary: 'white',
         secondly: '#838383',
