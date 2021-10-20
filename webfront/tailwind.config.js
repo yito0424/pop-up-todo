@@ -22,9 +22,13 @@ module.exports = {
         secondly: '#838383',
         accent: '#F0AD2C',
       },
+      borderColor: {
+        secondly: '#838383',
+      },
       width: {
         sidebar: '250px',
         burger: '48px',
+        form: '300px',
       },
       height: {
         header: '50px',

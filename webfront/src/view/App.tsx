@@ -4,6 +4,7 @@ import Service from './service/Service';
 import Header from './layout/Header';
 import SideBar from './layout/SideBar';
 import BackgroundSkin from './layout/BackgroundSkin';
+import SignUpForm from './signup/SignUpForm';
 
 function App() {
   const [open, setOpen] = useState<boolean>(true);
@@ -16,8 +17,8 @@ function App() {
         <Route exact path="/">
           Top Page
         </Route>
-        <Route path="/login">
-          Login Page
+        <Route path="/user/new">
+          <SignUpForm />
         </Route>
         <Route path="/service">
           <SideBar open={open}/>
