@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler} from 'react-hook-form';
 
 type InputTag = {
   name: string;
@@ -7,13 +7,18 @@ type InputTag = {
   type: 'text' | 'password' | 'email';
 };
 
+type Input = {
+  [keys: string]: any; 
+}
+
 type FormParams = {
+  onSubmitFunc: SubmitHandler<Input>; 
   inputTags: InputTag[];
 };
 
-const Form: React.VFC<FormParams> = ({ inputTags }) => {
+const Form: React.VFC<FormParams> = ({ onSubmitFunc, inputTags }) => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit(onSubmitFunc);
 
   return (
     <form onSubmit={onSubmit} className="w-full">
@@ -44,4 +49,4 @@ const Form: React.VFC<FormParams> = ({ inputTags }) => {
 };
 
 export default Form;
-export type { InputTag }
+export type { InputTag, Input }

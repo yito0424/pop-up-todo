@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
-import Form, { InputTag } from '../utils/Form';
+import Form, { InputTag, Input } from '../shared/Form';
 
 const LoginForm: React.VFC = () => {
   const createInputTag = useCallback(
@@ -22,11 +22,15 @@ const LoginForm: React.VFC = () => {
     ],
     [createInputTag],
   );
+  const onSubmit = useCallback(
+    (data: Input) => {console.log(data)}
+  , []);
+
 
   return (
     <div className="w-form mt-10 mx-auto py-5 px-10 bg-accent rounded">
       <h1 className="text-center my-5 text-2xl">ユーザ登録</h1>
-      <Form inputTags={inputTags} />
+      <Form onSubmitFunc={onSubmit} inputTags={inputTags} />
     </div>
   );
 };
