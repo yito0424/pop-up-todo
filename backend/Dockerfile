@@ -14,6 +14,6 @@ COPY . .
 # 不要かもしれない（vendorディレクトリがないので）
 RUN go mod vendor
 
-RUN chmod +x scripts/goinstall.sh
+RUN chmod +x scripts/entrypoint.sh
 
-ENTRYPOINT [ "scripts/goinstall.sh" ]
+ENTRYPOINT [ "scripts/entrypoint.sh" ]

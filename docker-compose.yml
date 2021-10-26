@@ -15,7 +15,20 @@ services:
       context: ./backend
     volumes:
       - ./backend:/go/src/app
+      - go-pkg:/go/pkg
+      - go-bin:/go/bin
     command: go run cmd/main.go
     ports:
       - "8080:8080"
     stdin_open: true
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: app_dev
+    ports:
+      - "3306:3306"
+
+volumes:
+  go-pkg:
+  go-bin:

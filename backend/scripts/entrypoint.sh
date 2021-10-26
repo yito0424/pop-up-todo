@@ -8,4 +8,6 @@ wire internal/app/di/wire.go
 
 go mod tidy
 
+sql-migrate up
+
 exec "$@"
