@@ -7,13 +7,21 @@
 package di
 
 import (
+	"github.com/yito0424/pop-up-todo/backend/internal/externalinterface/db"
 	"github.com/yito0424/pop-up-todo/backend/internal/externalinterface/server"
+	"github.com/yito0424/pop-up-todo/backend/internal/interfaceadapter/controller"
+	"github.com/yito0424/pop-up-todo/backend/internal/interfaceadapter/repository"
+	"github.com/yito0424/pop-up-todo/backend/internal/usecase"
 )
 
 // Injectors from wire.go:
 
 func InitializeServer() (server.Server, func()) {
-	serverServer := server.NewServer()
+	sqlHandler := db.NewSqlHandler()
+	userRepository := repository.NewUserRepository(sqlHandler)
+	userUsecase := usecase.NewUserUsecase(userRepository)
+	userController := controller.NewUserController(userUsecase)
+	serverServer := server.NewServer(userController)
 	return serverServer, func() {
 	}
 }

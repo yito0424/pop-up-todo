@@ -17,10 +17,12 @@ services:
       - ./backend:/go/src/app
       - go-pkg:/go/pkg
       - go-bin:/go/bin
-    command: go run cmd/main.go
+    # command: go run cmd/main.go
+    command: /bin/sh
     ports:
       - "8080:8080"
     stdin_open: true
+    tty: true
   db:
     image: mysql:5.7
     environment:
