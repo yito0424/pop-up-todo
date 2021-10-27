@@ -4,9 +4,7 @@ import(
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 	"net/http"
-	"github.com/yito0424/pop-up-todo/backend/internal/externalinterface/db"
 	"github.com/yito0424/pop-up-todo/backend/internal/interfaceadapter/controller"	
-	"fmt"
 	"github.com/go-playground/validator/v10"
 )
 
@@ -40,8 +38,6 @@ func (customValidator *CustomValidator) Validate(i interface{}) error {
 }
 
 func (server *server) Run() {
-	handler := db.NewSqlHandler()
-	fmt.Print(handler)
 	server.echoImplement.Validator = &CustomValidator{validator: validator.New()}
 	server.echoImplement.Use(middleware.CORS())
 	server.echoImplement.POST("/user/new", server.userController.SignUp)

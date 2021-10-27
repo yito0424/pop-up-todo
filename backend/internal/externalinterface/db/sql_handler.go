@@ -1,11 +1,15 @@
 package db
 
 import (
+	"bytes"
 	"context"
 	"fmt"
+	"log"
 	"os"
+	"text/template"
 
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"github.com/yito0424/pop-up-todo/backend/configs"
 	"github.com/yito0424/pop-up-todo/backend/internal/domain"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -21,11 +25,33 @@ type Test struct {
 	Password string  
 }
 
-func NewSqlHandler() *SqlHandler {
-	dsn := "root:password@tcp(db:3306)/app_dev?parseTime=true"
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+type FieldsToReplace struct{
+	User string
+	Password string
+	Host string
+	Port string
+	DBName string
+}
+
+func NewSqlHandler(config configs.Config) *SqlHandler {
+	var url bytes.Buffer
+
+	url_tmp, err := template.New("").Parse("{{.User}}:{{.Password}}@tcp({{.Host}}:{{.Port}})/{{.DBName}}?parseTime=true")
+	replace_to := FieldsToReplace{
+		User: config.DBUser,
+		Password: config.DBPassword,
+		Host: config.DBHost,
+		Port: config.DBPort,
+		DBName: config.DBName,
+	}
+	if err = url_tmp.Execute(&url, replace_to); err != nil{
+		log.Fatal(fmt.Errorf("failed to generate database url: %w", err))
+	}
+
+
+	db, err := gorm.Open(mysql.Open(url.String()), &gorm.Config{})
 	if err != nil {
-		panic("failed to connect database")
+		log.Fatal(fmt.Errorf("failed to connect database: %w", err))
 	}
 
 	err = db.AutoMigrate(&Test{})
