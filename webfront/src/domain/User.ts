@@ -1,10 +1,10 @@
-type User {
-  userName: string;
-  password: string;
-
-//   constructor(userName: string, password: string) {
-//     this.userName = userName;
-//     this.password = password;
+type User = {
+  Name: string;
+  Password: string;
+};
+//   constructor(Name: string, Password: string) {
+//     this.Name = Name;
+//     this.Password = Password;
 //   }
 
 //   isLoggedIn = () => this.get('isLoggedIn') === 'true';
@@ -25,33 +25,32 @@ type User {
 //     const url = process.env.REACT_APP_API_ENDPOINT;
 //     console.log(url)
 
-    //     let formDataSignup = new FormData(fetchFormSignup);
-    //     fetch(url, {
-    //         method: 'POST',
-    //         body: formDataSignup
-    //     }).then((response) => {
-    //         if(!response.ok) {
-    //             console.log('response error!');
-    //             return false;
-    //         } else {
-    //           console.log('response good!');
-    //           return response.json();
-    //         }
-    //     }).then((data)  => {
-    //         const title = data.title
-    //         if (title) {
-    //           console.log('title = ' + title);
-    //           window.location.href = '/login';
-    //           return true;
-    //         } else {
-    //           console.log("error!");
-    //           return false;
-    //         }
-    //     }).catch((error) => {
-    //         console.log(error);
-    //         return false;
-    //     });
+//     let formDataSignup = new FormData(fetchFormSignup);
+//     fetch(url, {
+//         method: 'POST',
+//         body: formDataSignup
+//     }).then((response) => {
+//         if(!response.ok) {
+//             console.log('response error!');
+//             return false;
+//         } else {
+//           console.log('response good!');
+//           return response.json();
+//         }
+//     }).then((data)  => {
+//         const title = data.title
+//         if (title) {
+//           console.log('title = ' + title);
+//           window.location.href = '/login';
+//           return true;
+//         } else {
+//           console.log("error!");
+//           return false;
+//         }
+//     }).catch((error) => {
+//         console.log(error);
+//         return false;
+//     });
 //   };
-}
 
-export default User
+export default User;

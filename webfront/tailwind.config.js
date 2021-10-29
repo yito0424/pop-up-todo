@@ -29,6 +29,7 @@ module.exports = {
         sidebar: '250px',
         burger: '48px',
         form: '300px',
+        alert: '350px',
       },
       height: {
         header: '50px',

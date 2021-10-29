@@ -15,7 +15,6 @@ const SideBar: React.VFC<SideBarProps> = ({ open }: SideBarProps) => {
     () => changeOpenStatus(open),
     [open, changeOpenStatus],
   );
-  console.log(openStatus)
 
   return (
     <nav

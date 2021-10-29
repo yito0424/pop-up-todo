@@ -3,6 +3,7 @@ module github.com/yito0424/pop-up-todo/backend
 go 1.17
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-playground/validator/v10 v10.9.0
 	github.com/google/wire v0.5.0
 	github.com/jinzhu/gorm v1.9.16
@@ -15,7 +16,6 @@ require (
 )
 
 require (
-	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect

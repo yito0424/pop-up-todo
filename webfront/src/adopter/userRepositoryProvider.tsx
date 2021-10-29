@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import IUserRepository from '../repository/IUserRepository';
-import MockUserRepository from '../repository/MockUserRepository';
+import UserRepository from '../repository/UserRepository';
+import LocalStorageClient from '../utils/localStorageClient/LocalStorageClient';
+import APIClient from '../utils/APIClient/APIClient';
 
-const userRepository: IUserRepository = new MockUserRepository();
+const userRepository: IUserRepository = new UserRepository(new LocalStorageClient("key"), new APIClient());
 
 const ReactUserRepositoryContext =
   React.createContext<IUserRepository>(userRepository);
